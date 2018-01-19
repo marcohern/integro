@@ -1,0 +1,11 @@
+.\app
+.\bootstrap
+.\public
+.\resources
+.\routes
+.\storage
+.\vendor
+*.json
+*.php
+*.lock
+*.js
