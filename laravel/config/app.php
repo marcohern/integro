@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Third party Service providers
+        Alexo\LaravelPayU\LaravelPayUServiceProvider::class, //PAYU Latam API
+
     ],
 
     /*

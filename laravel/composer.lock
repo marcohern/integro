@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "132b5679005405b24eddb8e2d5204415",
+    "content-hash": "6b5aada7fa05891ffdb247f01b1fcd88",
     "packages": [
+        {
+            "name": "alexo/laravel-payu",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alejogutierrez/laravel-payu.git",
+                "reference": "7c501f31a8972d267c42cd354be83fdef355a5c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alejogutierrez/laravel-payu/zipball/7c501f31a8972d267c42cd354be83fdef355a5c2",
+                "reference": "7c501f31a8972d267c42cd354be83fdef355a5c2",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "~1.0",
+                "php": ">=5.5.9",
+                "symfony/http-kernel": "2.7.*|~3.2",
+                "symfony/translation": "2.7.*|~3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "vlucas/phpdotenv": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "sdk/lib"
+                ],
+                "psr-4": {
+                    "Alexo\\LaravelPayU\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alejandro Gutiérrez",
+                    "email": "alejandrogutierrezacosta@gmail.com"
+                }
+            ],
+            "description": "Una interfaz fluida para Laravel usando el SDK oficial de PayU latam.",
+            "keywords": [
+                "laravel",
+                "pagos",
+                "payu"
+            ],
+            "time": "2017-05-04T16:25:24+00:00"
+        },
         {
             "name": "defuse/php-encryption",
             "version": "v2.1.0",
