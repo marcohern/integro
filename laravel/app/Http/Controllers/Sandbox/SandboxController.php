@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 
 class SandboxController extends Controller
 {
-
-    public function __construct() {
-    	$this->middleware('api');
+    public function index() {
+    	return view('sandbox/index');
     }
 }

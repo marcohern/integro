@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('sandbox')->group(function () {
+    Route::get('/', 'Sandbox\SandboxController@index')->name('sandbox_index');
+});
