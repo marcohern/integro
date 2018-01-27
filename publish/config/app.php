@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://sandbox.marcohern.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY', 'base64:udSyqM7m2xD3/RTJqhPYCHwOIXSSW/BMS/sBB9okHN8='),
 
     'cipher' => 'AES-256-CBC',
 

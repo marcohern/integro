@@ -13,8 +13,38 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    Lorem Ipsum!
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-asterisk"></i> Mobili: Mobile Image</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="{{ route('sandbox_payu_sandbox') }}"><i class="glyphicon glyphicon-asterisk"></i> PayU API (Sandbox)</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-asterisk"></i> PayU API (Production)</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-asterisk"></i> Sapari</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-asterisk"></i> Sapari</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-asterisk"></i> Sapari</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-asterisk"></i> Sapari</a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-primary btn-lg" href="#"><i class="glyphicon glyphicon-asterisk"></i> Sapari</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
