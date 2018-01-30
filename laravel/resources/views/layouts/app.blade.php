@@ -77,7 +77,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/helpers.js') }}"></script>
+    <script src="{{ asset('sandbox/js/helpers.js') }}"></script>
     @yield('scripts')
 </body>
 </html>
