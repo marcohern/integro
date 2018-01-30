@@ -1,9 +1,10 @@
+var endpoint = 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi';
 
 var products = [
-    {id:1, code:"FP0001", name: "Ferari 812 superfast"    , price: 250000 },
-    {id:2, code:"FP0002", name: "Harley Davidson Roadster", price: 64000  },
-    {id:3, code:"FP0003", name: "XLT Marine Nordic Star"  , price: 560000 },
-    {id:4, code:"FP0004", name: "Bun and Coke"            , price: 3.49   },
+    {id:1, code:"FP0001", name: "Ferari 812 superfast"    , price: 250000000 },
+    {id:2, code:"FP0002", name: "Harley Davidson Roadster", price: 64000000  },
+    {id:3, code:"FP0003", name: "XLT Marine Nordic Star"  , price: 560000000 },
+    {id:4, code:"FP0004", name: "Bun and Coke"            , price: 3500      },
 ];
 
 var cctypes = [
@@ -155,6 +156,103 @@ function onSelectAddress() {
         txtZip.value   = '';
         txtPhone.value = '';
     }
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function pay() {
+    console.log("pay");
+    var notifyUrl = "https://"+window.location.hostname + "/sandbox/payu_sandbox_notify";
+    var sessionId = 'MRCSESS-' + getRandomInt(10000,99999);
+    var cookie = 'MRCCOOKIE-' + getRandomInt(10000,99999);
+    var apiKey = '4Vj8eK4rloUd272L48hsrarnUA';
+    var apiLogin = 'pRRXKOl8ikMmt9u'
+    var merchantId = '508029';
+    var txValue = (product) ? product.price : 10000;
+    var currency = 'COP';
+
+    var date = (new Date()).toISOString().replace(/-/g, '').replace(/T/g,'').replace(/:/g, '').replace(/\./g, '').replace(/Z$/g, '');
+    console.log("date", date);
+
+    var refCode = 'MRCSB-' + date + '-' + getRandomInt(100,999);
+
+    var source = apiKey + '~' + merchantId + '~' + refCode + '~' + txValue + '~' + currency;
+    var signature = md5(source);
+    console.log("source", source);
+    console.log("signature", signature);
+
+    var values = {
+        TX_VALUE: {value:txValue, currency: currency}
+    };
+
+    var merchant = {apiKey:apiKey, apiLogin:'pRRXKOl8ikMmt9u'};
+
+    var order = {
+        accountId: '512321',
+        referenceCode: refCode,
+        description:"Sandbox Payment Test",
+        language: 'es',
+        signature: signature,
+        notifyUrl: notifyUrl,
+        additionalValues: values
+    };
+
+    var payerAddress = {
+        street1: "Calle 123 #45-67",
+        street2: "Barrio Acme",
+        city: "Medellin",
+        state: "Antioquia",
+        country: "CO",
+        postalCode: "1234567",
+        phone: '3005555555'
+    };
+
+    var payer = {
+        merchantPayerId: 1,
+        fullName: 'John Doe',
+        emailAddress: 'marcohern+jdoe@gmail.com',
+        contactPhone: '3005555555',
+        dniNumber: '12345678',
+        billingAddress: payerAddress
+    };
+
+    var ccx = {
+        number: creditcard.number,
+        securityCode: creditcard.cvv,
+        expirationDate: creditcard.yr + '/' + creditcard.mn,
+        name: "APPROVED"
+    };
+
+    var transaction = {
+        order: order,
+        payer: payer,
+        creditCard: ccx,
+        type: "AUTHORIZATION_AND_CAPTURE",
+        paymentMethod: creditcard.type,
+        paymentCountry: "CO",
+        deviceSessionId: sessionId,
+        ipAddress: "127.0.0.1",
+        cookie: cookie,
+        userAgent: navigator.userAgent
+    };
+
+    var body = {
+        language:"es",
+        command:"SUBMIT_TRANSACTION",
+        merchant: merchant,
+        transaction: transaction,
+        test: true
+    };
+
+    var req = new XMLHttpRequest();
+    req.open('POST', endpoint, true); 
+    req.setRequestHeader('Content-type','application/json; charset=utf-8');
+    req.setRequestHeader('Accept','application/json');
+    req.setRequestHeader('Access-Control-Allow-Origin','application/json');
+    req.send(body);
+    return false;
 }
 
 function start() {

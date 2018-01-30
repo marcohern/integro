@@ -8,7 +8,7 @@
             	<div class="panel-heading">PayU API (Sandbox)</div>
             	<div class="panel-body">
             		<p>This is an example of PayU using PayU API sandbox.</p>
-                    <form>
+                    <form method="POST" action="?" onsubmit="pay(this);return false;">
                         <div class="row">
                             <div class="col-xs-9">
                                 <div class="form-group">
@@ -145,6 +145,9 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            <button type="Submit" class="btn btn-lg btn-primary">Pagar</button>
                         </div>
                     </form>
             	</div>

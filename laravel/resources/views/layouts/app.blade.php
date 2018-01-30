@@ -78,6 +78,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('sandbox/js/helpers.js') }}"></script>
+    <script src="https://blueimp.github.io/JavaScript-MD5/js/md5.min.js"></script>
+    
     @yield('scripts')
 </body>
 </html>
