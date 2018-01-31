@@ -1,4 +1,5 @@
-var endpoint = 'https://sandbox.api.payulatam.com/payments-api/4.0/service.cgi';
+
+var endpoint = '/sandbox/payu_sandbox_pay';
 
 var products = [
     {id:1, code:"FP0001", name: "Ferari 812 superfast"    , price: 250000000 },
@@ -164,7 +165,7 @@ function getRandomInt(min, max) {
 
 function pay() {
     console.log("pay");
-    var notifyUrl = "https://"+window.location.hostname + "/sandbox/payu_sandbox_notify";
+    var notifyUrl = "/sandbox/payu_sandbox_notify";
     var sessionId = 'MRCSESS-' + getRandomInt(10000,99999);
     var cookie = 'MRCCOOKIE-' + getRandomInt(10000,99999);
     var apiKey = '4Vj8eK4rloUd272L48hsrarnUA';
